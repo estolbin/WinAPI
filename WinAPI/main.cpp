@@ -1,9 +1,9 @@
-#include<WinAPIfamily.h>
+п»ї#include<WinAPIfamily.h>
 #include<Windows.h>
 #include"resource.h"
 
-CONST CHAR g_szLoginDefaultMessage[] = "Введите логин.";
-CONST CHAR g_szPasswordDefaultMessage[] = "Введите пароль.";
+CONST CHAR g_szLoginDefaultMessage[] = "Р’РІРµРґРёС‚Рµ Р»РѕРіРёРЅ.";
+CONST CHAR g_szPasswordDefaultMessage[] = "Р’РІРµРґРёС‚Рµ РїР°СЂРѕР»СЊ.";
 
 BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -43,7 +43,7 @@ BOOL CALLBACK DlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			SendMessage(hPassword, WM_SETTEXT, 0, (LPARAM)sz_buffer);
 		}
 			break;
-		case IDOK: MessageBox(hwnd, "Была нажата кнопка ОК", "info", MB_OK | MB_ICONINFORMATION); break;
+		case IDOK: MessageBox(hwnd, "Р‘С‹Р»Р° РЅР°Р¶Р°С‚Р° РєРЅРѕРїРєР° РћРљ", "info", MB_OK | MB_ICONINFORMATION); break;
 		case IDCANCEL: EndDialog(hwnd, 0); break;
 		case IDC_EDIT_LOGIN:
 			if (HIWORD(wParam) == EN_SETFOCUS)
