@@ -21,3 +21,4 @@
 
 #define IDM_EXIT		 2000
 #define IDM_ABOUT		 2001
+#define IDD_ABOUT		 3000

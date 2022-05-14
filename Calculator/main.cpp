@@ -38,6 +38,7 @@ public:
 };
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+BOOL CALLBACK AbouDlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 int GiveErrorMessage(LPSTR text);
 void CreateMenu(HWND hwnd);
 void CreateButtons(HWND hwnd);
@@ -176,7 +177,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					SendMessage(hwnd, WM_CLOSE, 0, 0);
 					break;
 				case IDM_ABOUT:
-					AboutDlg(hwnd);
+					DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_ABOUT), hwnd, AbouDlgProc);
 				}
 			}
 		}
@@ -237,7 +238,25 @@ void CreateButtons(HWND hwnd)
 	new CalcButton("=", g_xstart + g_iLength * 4, g_ystart + g_iScreenHeight + g_iLength*2 + g_iInterval, hwnd, (HMENU)IDC_BUTTON_EQUAL, g_iButtonSize, g_iLength + g_iButtonSize);
 }
 
-void AboutDlg(HWND hwnd)
+BOOL CALLBACK AbouDlgProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
-	MessageBox(hwnd, "Это простой калькулятор, с использованием WINAPI\nверсия: СБД-121", "О программе", MB_OK);
+	switch (uMsg)
+	{
+	case WM_INITDIALOG:
+		return true;
+	case WM_COMMAND:
+		switch (LOWORD(wParam))
+		{
+		case IDOK:
+			EndDialog(hwnd, IDOK);
+			break;
+		case IDCANCEL:
+			EndDialog(hwnd, IDCANCEL);
+			break;
+		}
+		break;
+	default:
+		return false;
+	}
+	return true;
 }

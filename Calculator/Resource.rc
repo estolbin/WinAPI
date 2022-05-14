@@ -1,0 +1,14 @@
+#include "resource.h"
+#include "winres.h"
+
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 239, 66
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "О программе"
+FONT 8, "MS Sans Serif"
+BEGIN
+	DEFPUSHBUTTON   "&OK", IDOK, 174, 18, 50, 14
+	PUSHBUTTON      "&Cancel", IDCANCEL, 174, 35, 50, 14
+	GROUPBOX        "О программе...", IDC_STATIC, 7, 7, 225, 52
+	CTEXT           "Простой калькулятор написанный с помощью WinAPI\r\n\r\nверсия: СБД-121",
+	IDC_STATIC, 16, 18, 144, 33
+END
