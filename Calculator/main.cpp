@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include<Windows.h>
 #include<cstdio>
 #include"resource.h"
@@ -135,7 +135,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				case IDC_BUTTON_CLEAR:
 					SendMessage(hEdit, WM_SETTEXT, 0, NULL);
 					break;
-					// привязать арифметические операции к классу кнопки?
+					// РїСЂРёРІСЏР·Р°С‚СЊ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ РѕРїРµСЂР°С†РёРё Рє РєР»Р°СЃСЃСѓ РєРЅРѕРїРєРё?
 				case IDC_BUTTON_PLUS:
 					strcpy(sz_stack, sz_buffer);
 					SendMessage(hEdit, WM_SETTEXT, 0, (LPARAM)"+");
@@ -239,5 +239,5 @@ void CreateButtons(HWND hwnd)
 
 void AboutDlg(HWND hwnd)
 {
-	MessageBox(hwnd, "Это простой калькулятор, с использованием WINAPI\nверсия: СБД-121", "О программе", MB_OK);
+	MessageBox(hwnd, "Р­С‚Рѕ РїСЂРѕСЃС‚РѕР№ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ, СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј WINAPI\nРІРµСЂСЃРёСЏ: РЎР‘Р”-121", "Рћ РїСЂРѕРіСЂР°РјРјРµ", MB_OK);
 }
